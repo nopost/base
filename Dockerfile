@@ -12,13 +12,9 @@ RUN	sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     cp -a /etc/ssh /etc/ssh.cache && \
     mkdir -p -m0755 /var/run/sshd && \
     rm -rf /var/cache/apk/* 
-  
-  
+
 EXPOSE 22 9001  
-  
 COPY resources/etc /etc
 COPY resources/entry.sh /entry.sh  
 ENTRYPOINT ["/entry.sh"]    
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-  
-  
